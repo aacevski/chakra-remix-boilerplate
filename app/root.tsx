@@ -21,7 +21,9 @@ export const meta: MetaFunction = () => {
 export default function App() {
   return (
     <Document>
-      <Outlet />
+      <ChakraProvider>
+        <Outlet />
+      </ChakraProvider>
     </Document>
   );
 }
@@ -124,7 +126,7 @@ const Document = withEmotionCache(
           ))}
         </head>
         <body>
-          <ChakraProvider>{children}</ChakraProvider>
+          {children}
           <ScrollRestoration />
           <Scripts />
           {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
